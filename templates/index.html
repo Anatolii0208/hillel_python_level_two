@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Online shop</title>
+{% endblock %}
+
+{% block body %}
+    <main class="container">
+      {% for el in data %}
+          <div  class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <div class="col">
+      <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+
+        <img src= {{el.foto}} height="499" width="221" alt="альтернативный text">
+        <h4 class="my-0 fw-normal">{{ el.title}}</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">{{el.price}} <small class="text-muted">rub</small></h1>
+          <h5>{{el.caption}}</h5>
+          <br>
+        <a href="/buy/{{el.id}}" class="btn btn-lg btn-block btn-outline-primary"> Add to cart </a>
+          <a href="/del/{{el.id}}" class="btn btn-lg btn-block btn-outline-primary"> Del from cart </a>
+      </div>
+    </div>
+    </div>
+          </div>
+
+      {% endfor%}
+</main>
+{% endblock %}
